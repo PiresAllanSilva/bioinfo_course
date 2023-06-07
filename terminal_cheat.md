@@ -1,6 +1,7 @@
+### Lista de comandos importantes para uso no terminal Ubuntu :scroll:
 
 Comando :keyboard:|Função :computer:
-:---------:|---------------
+:---------------:|-------------------
 apt-get| Controle de pacotes do sistema. **apt-get install [pacote]; [update]; [upgrade]**
 cat| Imprime o conteúdo de um arquivo de texto
 cd| _change directory_ muda de diretório **cd [caminho_novo_diretório]**
