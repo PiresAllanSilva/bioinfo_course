@@ -1,6 +1,6 @@
 # Palavras reservadas em Python
 
-Para suas funcionalidade padrão, a linguagem Python conta com um conjunto de palavras reservadas. Nesse caso, essas palavras devem ter sua sobrescrita evitada, impedindo desvios de comportamentos. Além das palavras reservadas, a mesma precaução deve ser tomada para funções nativas do Python. Abaixo você pode encontrar a lista em ordem alfabética:
+Para suas funcionalidade padrão, a linguagem Python conta com um conjunto de palavras reservadas. Nesse caso, essas palavras devem ter sua sobrescrita evitada, impedindo desvios de comportamentos. Para mais informações cheque as referências: [Palavras Reservadas](https://docs.python.org/pt-br/3.8/reference/lexical_analysis.html#keywords) e [Documentação Python](https://docs.python.org/pt-br/3/library/functions.html). Além das palavras reservadas, a mesma precaução deve ser tomada para funções nativas do Python. Abaixo você pode encontrar a lista em ordem alfabética:
 
 ## Palavras reservadas
 
@@ -9,6 +9,8 @@ Para suas funcionalidade padrão, a linguagem Python conta com um conjunto de pa
     and
     as
     assert
+    async
+    await
 
 ### B
 
