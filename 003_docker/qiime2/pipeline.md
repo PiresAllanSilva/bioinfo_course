@@ -26,6 +26,23 @@ docker run --rm \
   --input-format PairedEndFastqManifestPhred33
 ```
 
+## Importação do banco de referência
+
+```bash
+mkdir dbs/target_loci
+cd dbs/target_loci
+wget https://ftp.ncbi.nlm.nih.gov/refseq/TargetedLoci/Bacteria/bacteria.16SrRNA.fna.gz \
+  -O 16S.gz
+gunzip 16S.gz
+docker run --rm \
+  -v ${PWD}/data/:/data/ \
+  -v ${PWD}/output/:/output/ \
+  quay.io/qiime2/core:rescript qiime tools import \
+  --input-path /dbs/target_loci/16S \
+  --output-path /dbs/target_loci/reference_sequences.qza \
+  --type 'FeatureData[Sequence]'
+```
+
 ## Visualização Dados Brutos
 
 ```bash
@@ -33,8 +50,8 @@ docker run --rm \
   -v ${PWD}/data/:/data/ \
   -v ${PWD}/output/:/output/ \
   quay.io/qiime2/core:rescript qiime demux summarize \
- --i-data /output/rawreads.qza \
- --o-visualization /output/rawreads.qzv
+  --i-data /output/rawreads.qza \
+  --o-visualization /output/rawreads.qzv
 ```
  
 ## Remoção de primers (quando necessário)
@@ -204,7 +221,7 @@ docker run --rm \
    --i-reads /output/DADA2/representative_sequences.qza \
    --i-classifier /dbs/silva/silva-138-99-nb-classifier.qza \
    --p-n-jobs 2 \
-   --output-dir /output/SILVA/
+   --output-path /output/SILVA/
 
 docker run --rm \
   -v ${PWD}/data/:/data/ \
