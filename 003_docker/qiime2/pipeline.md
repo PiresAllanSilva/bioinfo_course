@@ -37,10 +37,38 @@ gunzip 16S.gz
 docker run --rm \
   -v ${PWD}/data/:/data/ \
   -v ${PWD}/output/:/output/ \
+  -v ${PWD}/dbs/:/dbs/ \
   quay.io/qiime2/core:rescript qiime tools import \
   --input-path /dbs/target_loci/16S \
   --output-path /dbs/target_loci/reference_sequences.qza \
   --type 'FeatureData[Sequence]'
+```
+
+## Rodando Blast
+
+```bash
+docker run --rm \
+  -v ${PWD}/data/:/data/ \
+  -v ${PWD}/output/:/output/ \
+  -v ${PWD}/dbs/:/dbs/ \
+  quay.io/qiime2/core:rescript qiime feature-classifier blast \
+  --i-query /output/DADA2/representative_sequences.qza \
+  --i-reference-reads /dbs/target_loci/reference_sequences.qza \
+  --output-dir /output/blast2
+```
+
+## Importando a Tabela de Taxonomias
+
+```bash
+docker run --rm \
+  -v ${PWD}/data/:/data/ \
+  -v ${PWD}/output/:/output/ \
+  -v ${PWD}/dbs/:/dbs/ \
+  quay.io/qiime2/core:rescript qiime tools import \
+  --input-path /dbs/target_loci/headerless_taxonomy_table.tsv \
+  --output-path /output/taxonomy_table \
+  --type 'FeatureData[Taxonomy]' \
+  --input-format HeaderlessTSVTaxonomyFormat
 ```
 
 ## Visualização Dados Brutos
